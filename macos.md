@@ -89,7 +89,7 @@ qemu-img create -f qcow2 MyDisk.qcow2 64G
 >***Q:发现安装时找不到硬盘？***  
 >***A:记得先使用“磁盘工具”分区！***
 
-### 选择项a 使用Virt-Manager对虚拟机进行管理
+#### 选择项a 使用Virt-Manager对虚拟机进行管理
 
 你可以把整个虚拟机导入到Virt-Manager里以便后期的硬件变动和性能优化，同时你需要进行如下两个步骤
 
@@ -101,7 +101,7 @@ sudo ./make.sh --add
 
 2.执行上述命令之后，在新添加的虚拟机的“属性”里把`MyDisk.qcow2`添加为储存盘
 
-### 选择项b 使用无监视器的机器(headless system)
+#### 选择项b 使用无监视器的机器(headless system)
 
 如要使用无监视器的机器或者云端设备，你可以通过添加附加值给`headless.sh`来配置你的虚拟机硬件，示例如下
 
