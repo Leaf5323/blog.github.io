@@ -14,4 +14,9 @@
 
 想要摆脱对Windows的依赖，目前的选择只有类Unix，显然macOS ~~只能~~ 跑在Mac上，那么最亲民的选择只有Linux了，但是Linux生态可以说是十分简陋了，用开源补一补开源，于是想到了Android...
 
-## []()
+## [折腾Arch Linux的安装]()
+
+![arch](./img/arch.png)
+
+最开始接触到的Linux是Ubuntu，奈何具有“超级牛力”的APT包管理器需要手动添加PPA让人头皮发麻。后来认识了Arch，发现原来还有一个Pacman包管理器可以解决所有软件安装问题，于是踏入了Arch系的深水...
+
