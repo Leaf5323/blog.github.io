@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+# 尝试写一个博客💌
 
-You can use the [editor on GitHub](https://github.com/Leaf5323/blog.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+欢迎来到一个纯记录好玩黑科技的博客，界面简陋，但是干货多多！
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## [使用QEMU虚拟机加KVM虚拟化在Linux平台部署黑苹果]()
 
-### Markdown
+![macos](./img/macos.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+真正的折腾永远不会只停留在安装Linux，而是，比如说在Linux上跑macOS...
 
-```markdown
-Syntax highlighted code block
+## [Linux生态的补足：Anbox]()
 
-# Header 1
-## Header 2
-### Header 3
+![anbox](./img/anbox.png)
 
-- Bulleted
-- List
+想要摆脱对Windows的依赖，目前的选择只有类Unix，显然macOS ~~只能~~ 跑在Mac上，那么最亲民的选择只有Linux了，但是Linux生态可以说是十分简陋了，用开源补一补开源，于是想到了Android...
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Leaf5323/blog.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## []()
