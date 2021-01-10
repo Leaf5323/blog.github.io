@@ -2,7 +2,7 @@
 
 欢迎来到一个纯记录好玩黑科技的博客，界面简陋，但是干货多多！
 
-## [使用QEMU虚拟机加KVM虚拟化在Linux平台部署黑苹果]()
+## [使用QEMU虚拟机加KVM虚拟化在Linux平台部署黑苹果](./macos.md)
 
 ![macos](./img/macos.png)
 
