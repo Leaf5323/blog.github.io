@@ -6,7 +6,7 @@
 
 ![macos](./img/macos.png)
 
-真正的折腾永远不会只停留在安装Linux，而是，比如说在Linux上跑macOS...
+有的人用macOS是因为需要使用如FinalCutProX这样的软件进行内容创作，有的人用macOS是因为macOS下有易于破解的Adobe软件，而有的人用macOS纯粹为了折腾...
 
 ## [Linux生态的补足：Anbox]()
 
