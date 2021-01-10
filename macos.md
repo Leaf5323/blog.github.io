@@ -12,37 +12,37 @@
 
 #### Debain系（如Ubuntu, Debian, Mint, PopOS）
 
-```
+```bash
 sudo apt-get install qemu-system qemu-utils python3 python3-pip
 ```
 
 #### Arch系（如Manjaro, Arch）
 
-```
+```bash
 sudo pacman -S qemu python python-pip python-wheel
 ```
 
 #### Void Linux
 
-```
+```bash
 sudo xbps-install -Su qemu python3 python3-pip
 ```
 
 #### openSUSE Tumbleweed
 
-```
+```bash
 sudo zypper in qemu-tools qemu-kvm qemu-x86 qemu-audio-pa python3-pip
 ```
 
 #### Fedora
 
-```
+```bash
 sudo dnf install qemu qemu-img python3 python3-pip
 ```
 
 #### Gentoo
 
-```
+```bash
 sudo emerge -a qemu python:3.4 pip
 ```
 
