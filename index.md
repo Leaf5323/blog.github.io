@@ -8,7 +8,7 @@
 
 有的人用macOS是因为需要使用如FinalCutProX这样的软件进行内容创作，有的人用macOS是因为macOS下有易于破解的Adobe软件，而有的人用macOS纯粹为了折腾...
 
-## [Linux生态的补足：Anbox]()
+## [Linux生态的补足：Anbox](./anbox.md)
 
 ![anbox](./img/anbox.png)
 
