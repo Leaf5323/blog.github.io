@@ -2,11 +2,11 @@
 
 [@foxlet](https://github.com/foxlet)在其[macOS-Simple-KVM](https://github.com/foxlet/macOS-Simple-KVM)仓库里有十分清楚的解释，为了后期阅读的方便，我对其步骤进行了翻译与简单的整理并记录此文。
 
-## 虚拟化与黑苹果
+## ![icon](./img/apple.png) 虚拟化与黑苹果
 
 早期的黑苹果，都是在实体机上直接安装以最大化利用硬件的性能。随着虚拟化技术的成熟，虚拟机造成的性能损越来越小，于是在虚拟机上折腾黑苹果开始成为新的趋势。这里我们使用的虚拟化接口是KVM，使用的虚拟机平台则是QEMU。QEMU是开源的虚拟平台，同时对Linux多个发行版的支持也较好。下面我们直接进入正题。
 
-## QEMU等所需软件的安装
+## ![icon](./img/apple.png) QEMU等所需软件的安装
 
 这里收录了Debain系、Arch系、Void Linux、openSUSE、Fedoras和Gentoo的安装指令，可以根据自己的发行版复制对应的指令，在终端粘贴后执行。
 
@@ -54,7 +54,7 @@ sudo emerge -a qemu python:3.4 pip
 
 * 上面两个都不方便的话，耐心等一下吧
 
-## 开始配置
+## ![icon](./img/apple.png) 开始配置
 
 ### 第一步
 
