@@ -355,7 +355,7 @@ Intel和AMD的CPU的机器（X86架构平台还有第三家吗？那就都装吧
 |:------:|:------:|
 |Intel|`pacman -S xf86-video-intel`|
 |AMD|`pacman -S xf86-video-amdgpu xf86-video-ati`
-|Nvidia（仅限开源驱动，闭源驱动这里不多赘述）|`pacman -S xf86-nouveau`
+|Nvidia（仅限开源驱动，闭源驱动这里不多赘述）|`pacman -S xf86-video-nouveau`
 
 #### 安装桌面环境
 
