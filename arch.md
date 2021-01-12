@@ -129,7 +129,7 @@ fdisk /dev/sdX
 
 好消息是，经过这一步，最复杂的部分可以说是过去了，往下的操作很少会到这个境界了😀
 
-### ![icon](./img/arch.ico) 软件配置
+### ![icon](./img/arch.ico) 系统安装
 
 #### 配置包管理器源
 
@@ -258,3 +258,155 @@ nano /etc/hostname
 ```
 
 然后输入你想要的名字，保存退出就好了
+
+配置好主机名，接下来需要配置hosts文件，编辑`/etc/hosts`，指令如下
+
+ ```bash
+ nano /etc/hosts
+ ```
+
+ 输入如下内容
+
+ ```
+ 127.0.0.1  localhost
+ ::1        localhost
+ 127.0.1.1  你的主机名.localdomain 你的主机名
+ ```
+
+接下来，设置#超级用户（root）密码，输入
+
+```bash
+passwd
+```
+
+然后我们来到了整个过程中第二麻烦的步骤：配置引导。计划是使用GRUB进行引导，考虑到后期折腾双系统，我们还需要安装一些软件包，指令如下
+
+```bash
+pacman -S os-prober
+```
+
+下面关于GRUB的配置一样有MBR和GPT两个分支，对应的指令我仍然用表格呈现
+
+|分区表|步骤1：安装GRUB组件|步骤2：安装GRUB为磁盘主引导|步骤3：生成GRUB配置文件|
+|:------:|:------:|:------:|:------:|
+|MBR|`pacman -S grub`|`grub-install --target=i386-pc /dev/sdX`|`grub-mkconfig -o /boot/grub/grub.cfg`|
+|GPT|`pacman -S grub efibootmgr`|`grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub`|`grub-mkconfig -o /boot/grub/grub.config`|
+
+注：目前我还没有去研究怎样手动把GRUB安装在某个分区同时保证GRUB可用，换言之，目前还没办法做到用Windows的BCD引导来双系统，只能用GRUB去拉起Windows引导，Windows的快速启动也会受影响，因而双系统情况下可能导致Windows启动速度比正常情况下慢一些
+
+### ![icon](./img/arch.ico) 安装后期配置
+
+接下来就没有难题了，可以大胆看到最后了！
+
+#### 添加用户
+
+要知道刚才一直在用#，也就是所谓的超级用户（拥有最高权限），现在我们要创建一个日常使用的普通用户，代码如下
+
+```bash
+useradd -m -G wheel 用户名
+```
+
+>注：这里将用户添加到了wheel群组里面，这样接下来配置sudo分配权限会简单一些
+
+给你创建的用户设置密码
+
+```bash
+passwd 用户名
+```
+
+#### 安装配置sudo
+
+我们需要安装sudo软件包以便日常我们使用普通用户也可以通过这个指令获取#权限
+
+```bash
+pacman -S sudo
+```
+
+安装完成后我们同样需要对其进行配置，正如上文所言，我们要允许wheel群组内用户获取#权限，但这里情况不太一样，我们先执行下面的指令
+
+```bash
+visudo
+```
+
+这时又进入了编辑模式，但是这次的编辑器是vi，vi编辑器默认会先进入**命令模式**，我们需要输入`i`来进入**输入模式**，然后我们可以使用方向键控制光标，我们需要找到如下表述
+
+```
+## Uncomment to allow members of group...（后面的省略，只需要看每行开头）
+## %wheel ALL=(ALL)ALL...
+```
+
+删除`%wheel`前面的##注释符，这里`Backspace`不管用，需要用`Del`删除，你会发现原本白色的文字突然被识别然后变成不同颜色，这时我们需要退出**输入模式**而进入**命令模式**，只需要输入`:`（也就是`Shift`+`;`
+），这时光标会自动出现在最底一行，这时我们输入`wq`然后回车就可以保存编辑并退出了
+
+#### CPU微码补丁
+
+Intel和AMD的CPU的机器（X86架构平台还有第三家吗？那就都装吧）还需要安装一个微码软件包来提高系统稳定性，我用表格呈现需要输入的指令
+
+|CPU提供商|对应指令|
+|:------:|:------:|
+|Intel|`pacman -S intel-ucode`|
+|AMD|`pacman -S amd-ucode`|
+
+#### 安装显卡驱动
+
+这里会有三个分支，这里还是用表格呈现需要输入的指令
+
+|GPU提供商|对应指令|
+|:------:|:------:|
+|Intel|`pacman -S xf86-video-intel`|
+|AMD|`pacman -S xf86-video-amdgpu xf86-video-ati`
+|Nvidia（仅限开源驱动，闭源驱动这里不多赘述）|`pacman -S xf86-nouveau`
+
+#### 安装桌面环境
+
+桌面的实现方式又超多种，这里介绍最好配置的X桌面系统，以及对应三种可用的桌面环境
+
+首先要安装X桌面系统，代码如下
+
+```bash
+pacman -S xorg
+```
+
+可供选择的三款桌面我继续使用表格来表示需要的指令
+
+|DE名称|桌面优势|桌面缺陷|对应指令|
+|:------:|:------:|:------:|:------:|
+|Xfce|轻量，占用资源少，占用磁盘空间小，可自定义空间大|动画简陋，界面老旧，依赖后期美化|`pacman -S xfce4 xfce4-goodies`|
+|KDE|现代而美观，动画优美，可自定义空间大|占用很大磁盘空间，占用较多资源|`pacman -S plasma kde-applications`|
+|DeepinDE|源自Deepin，设计美观并且比较轻量|可自定义空间比较小|`pacman -S deepin-extra`|
+
+安装好桌面环境之后，我们还需要配置窗口管理器，这里我们选用sddm，兼容上述三个桌面环境并且后期比较好配置
+
+```bash
+pacman -S sddm
+```
+
+然后设置开机启动sddm
+
+```bash
+systemctl enable sddm
+```
+
+同时由于有了图形化界面，原来的命令行用网络连接服务可以禁用并启用图形界面使用的服务
+
+```bash 
+systemctl disable netctl
+systemctl enable NetworkManager
+```
+
+最后的最后，为了避免出现桌面环境中网络相关小图标缺失，我们安装一个图标包
+
+```bash
+pacman -S network-manager-applet
+```
+
+### ![icon](./img/arch.ico) 完成安装
+
+到这里，Arch的基础安装就算是结束了，现在我们可以退出安装盘然后重启进入新系统了！
+
+```bash
+exit
+reboot
+```
+
+这篇文章到此终于可以画上一个句号，全文一万多字符，花了几天才完成，可能是我效率不够吧。这次算是好好熟悉了一下Markdown语法，我们下篇文章再见😌
