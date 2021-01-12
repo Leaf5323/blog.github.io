@@ -93,13 +93,13 @@ qemu-img create -f qcow2 MyDisk.qcow2 64G
 
 你可以把整个虚拟机导入到Virt-Manager里以便后期的硬件变动和性能优化，同时你需要进行如下两个步骤
 
-1.在终端输入
+1. 在终端输入
 
 ```bash
 sudo ./make.sh --add
 ```
 
-2.执行上述命令之后，在新添加的虚拟机的“属性”里把`MyDisk.qcow2`添加为储存盘
+2. 执行上述命令之后，在新添加的虚拟机的“属性”里把`MyDisk.qcow2`添加为储存盘
 
 #### 选择项b 使用无监视器的机器(headless system)
 
