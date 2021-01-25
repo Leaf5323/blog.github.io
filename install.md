@@ -266,7 +266,7 @@ pacman -S os-prober
 |分区表|步骤1：安装GRUB组件|步骤2：安装GRUB为磁盘主引导|步骤3：生成GRUB配置文件|
 |:------:|:------:|:------:|:------:|
 |MBR|`pacman -S grub`|`grub-install --target=i386-pc /dev/sdX`|`grub-mkconfig -o /boot/grub/grub.cfg`|
-|GPT|`pacman -S grub efibootmgr`|`grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub`|`grub-mkconfig -o /boot/grub/grub.config`|
+|GPT|`pacman -S grub efibootmgr`|`grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub`|`grub-mkconfig -o /boot/grub/grub.cfg`|
 
 注：目前我还没有去研究怎样手动把GRUB安装在某个分区同时保证GRUB可用，换言之，目前还没办法做到用Windows的BCD引导来双系统，只能用GRUB去拉起Windows引导，Windows的快速启动也会受影响，因而双系统情况下可能导致Windows启动速度比正常情况下慢一些
 
