@@ -30,6 +30,6 @@
 
 ![nothing](./img/nothing.png)
 
-## [政治学通识复习：政治是什么？](./政治是社么.md)
+## [政治学通识复习：政治是什么？](./政治是什么.md)
 
 ![nothing](./img/nothing.png)
