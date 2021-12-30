@@ -28,3 +28,4 @@
 
 ## [政治学通识复习：导论](./政治学通识导论.md)
 
+![nothing](./img/nothing.png)
