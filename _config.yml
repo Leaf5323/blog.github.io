@@ -1,1 +1,4 @@
 theme: jekyll-theme-minimal
+title: 这是什么？
+description: 可能是个博客也说不定
+show_downloads: false
